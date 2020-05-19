@@ -3,10 +3,9 @@ package com.example.nba.presentation.controller;
 import android.content.SharedPreferences;
 
 import com.example.nba.Singletons;
-import com.example.nba.presentation.model.CavaliersPlayers;
 import com.example.nba.presentation.model.LakersPlayers;
 import com.example.nba.presentation.model.RestNBA;
-import com.example.nba.presentation.view.Lakers;
+import com.example.nba.presentation.view.Lakers.Lakers;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

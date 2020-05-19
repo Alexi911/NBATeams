@@ -1,4 +1,4 @@
-package com.example.nba.presentation.view;
+package com.example.nba.presentation.view.Warriors;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,4 +1,9 @@
-package com.example.nba.presentation.view;
+package com.example.nba.presentation.view.Lakers;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,54 +12,49 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nba.Singletons;
-import com.example.nba.presentation.controller.BullsController;
-import com.example.nba.presentation.model.BullsPlayers;
+import com.example.nba.presentation.controller.LakersController;
+import com.example.nba.presentation.model.LakersPlayers;
 import com.example.nba.R;
-import com.example.nba.presentation.model.WarriorsPlayers;
 
 import java.util.List;
 
-public class Bulls extends AppCompatActivity {
+public class Lakers extends AppCompatActivity  {
 
-    private static final String TAG = "Bulls";
+    private static final String TAG = "Lakers";
 
     private RecyclerView recyclerView;
-    private BullsAdapter mAdapter;
+    private LakersAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private BullsController bullsController;
-    private List<BullsPlayers> bullsPlayers;
+    private LakersController lakersController;
+    private List<LakersPlayers> lakersPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teams);
 
-        bullsController = new BullsController(
+        lakersController = new LakersController(
                 this,
                 Singletons.getGson(),
                 Singletons.getSharedPreferences(getApplicationContext())
         );
-        bullsController.onStart();
+        lakersController.onStart();
     }
 
-    public void showList(List<BullsPlayers> bullsList) {
+    public void showList(List<LakersPlayers> lakersList) {
 
         recyclerView = (RecyclerView) findViewById(R.id.teams_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new BullsAdapter(bullsList, new BullsAdapter.OnItemClickListener() {
+        mAdapter = new LakersAdapter(lakersList, new LakersAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(BullsPlayers item) {
-                bullsController.onItemClick(item);
+            public void onItemClick(LakersPlayers item) {
+                lakersController.onItemClick(item);
             }
         });
 
@@ -88,10 +88,10 @@ public class Bulls extends AppCompatActivity {
         return true;
     }
 
-    public void navigateToDetails(BullsPlayers bullsPlayers) {
+    public void navigateToDetails(LakersPlayers lakersPlayers) {
 
-        Intent myIntent = new Intent(Bulls.this, BullsDetails.class);
-        myIntent.putExtra("bullsKey", Singletons.getGson().toJson(bullsPlayers));
-        Bulls.this.startActivity(myIntent);
+        Intent myIntent = new Intent(Lakers.this, LakersDetails.class);
+        myIntent.putExtra("lakersKey", Singletons.getGson().toJson(lakersPlayers));
+        Lakers.this.startActivity(myIntent);
     }
 }

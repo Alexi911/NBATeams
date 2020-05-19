@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import com.example.nba.Singletons;
 import com.example.nba.presentation.model.RestNBA;
 import com.example.nba.presentation.model.WarriorsPlayers;
-import com.example.nba.presentation.view.Warriors;
+import com.example.nba.presentation.view.Warriors.Warriors;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

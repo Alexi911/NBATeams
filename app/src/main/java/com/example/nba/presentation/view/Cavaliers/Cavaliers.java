@@ -1,4 +1,4 @@
-package com.example.nba.presentation.view;
+package com.example.nba.presentation.view.Cavaliers;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -14,48 +14,47 @@ import android.widget.Toast;
 
 
 import com.example.nba.Singletons;
-import com.example.nba.presentation.controller.LakersController;
-import com.example.nba.presentation.model.LakersPlayers;
+import com.example.nba.presentation.controller.CavaliersController;
+import com.example.nba.presentation.model.CavaliersPlayers;
 import com.example.nba.R;
-import com.example.nba.presentation.model.WarriorsPlayers;
 
 import java.util.List;
 
-public class Lakers extends AppCompatActivity  {
+public class Cavaliers extends AppCompatActivity {
 
-    private static final String TAG = "Lakers";
+    private static final String TAG = "Cavaliers";
 
     private RecyclerView recyclerView;
-    private LakersAdapter mAdapter;
+    private CavaliersAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private LakersController lakersController;
-    private List<LakersPlayers> lakersPlayers;
+    private CavaliersController cavaliersController;
+    private List<CavaliersPlayers> cavaliersPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teams);
 
-        lakersController = new LakersController(
+        cavaliersController = new CavaliersController(
                 this,
                 Singletons.getGson(),
                 Singletons.getSharedPreferences(getApplicationContext())
         );
-        lakersController.onStart();
+        cavaliersController.onStart();
     }
 
-    public void showList(List<LakersPlayers> lakersList) {
+    public void showList(List<CavaliersPlayers> cavaliersList) {
 
         recyclerView = (RecyclerView) findViewById(R.id.teams_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new LakersAdapter(lakersList, new LakersAdapter.OnItemClickListener() {
+        mAdapter = new CavaliersAdapter(cavaliersList, new CavaliersAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(LakersPlayers item) {
-                lakersController.onItemClick(item);
+            public void onItemClick(CavaliersPlayers item) {
+                cavaliersController.onItemClick(item);
             }
         });
 
@@ -89,10 +88,10 @@ public class Lakers extends AppCompatActivity  {
         return true;
     }
 
-    public void navigateToDetails(LakersPlayers lakersPlayers) {
+    public void navigateToDetails(CavaliersPlayers cavaliersPlayers) {
 
-        Intent myIntent = new Intent(Lakers.this, LakersDetails.class);
-        myIntent.putExtra("lakersKey", Singletons.getGson().toJson(lakersPlayers));
-        Lakers.this.startActivity(myIntent);
+        Intent myIntent = new Intent(Cavaliers.this, CavaliersDetails.class);
+        myIntent.putExtra("cavaliersKey", Singletons.getGson().toJson(cavaliersPlayers));
+        Cavaliers.this.startActivity(myIntent);
     }
 }

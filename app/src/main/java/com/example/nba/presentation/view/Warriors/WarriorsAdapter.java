@@ -1,4 +1,4 @@
-package com.example.nba.presentation.view;
+package com.example.nba.presentation.view.Warriors;
 
 import android.view.LayoutInflater;
 import android.view.View;

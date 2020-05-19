@@ -1,4 +1,4 @@
-package com.example.nba.presentation.view;
+package com.example.nba.presentation.view.Warriors;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -12,50 +12,48 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-
 import com.example.nba.Singletons;
-import com.example.nba.presentation.controller.CavaliersController;
-import com.example.nba.presentation.model.CavaliersPlayers;
+import com.example.nba.presentation.controller.WarriorsController;
 import com.example.nba.R;
 import com.example.nba.presentation.model.WarriorsPlayers;
 
 import java.util.List;
 
-public class Cavaliers extends AppCompatActivity {
+public class Warriors extends AppCompatActivity {
 
-    private static final String TAG = "Cavaliers";
+    private static final String TAG = "Warriors";
 
     private RecyclerView recyclerView;
-    private CavaliersAdapter mAdapter;
+    private WarriorsAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    private CavaliersController cavaliersController;
-    private List<CavaliersPlayers> cavaliersPlayers;
+    private WarriorsController warriorsController;
+    private List<WarriorsPlayers> warriorsPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teams);
 
-        cavaliersController = new CavaliersController(
+        warriorsController = new WarriorsController(
                 this,
                 Singletons.getGson(),
                 Singletons.getSharedPreferences(getApplicationContext())
         );
-        cavaliersController.onStart();
+        warriorsController.onStart();
     }
 
-    public void showList(List<CavaliersPlayers> cavaliersList) {
+    public void showList(List<WarriorsPlayers> playersList) {
 
         recyclerView = (RecyclerView) findViewById(R.id.teams_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new CavaliersAdapter(cavaliersList, new CavaliersAdapter.OnItemClickListener() {
+        mAdapter = new WarriorsAdapter(playersList, new WarriorsAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(CavaliersPlayers item) {
-                cavaliersController.onItemClick(item);
+            public void onItemClick(WarriorsPlayers item) {
+                warriorsController.onItemClick(item);
             }
         });
 
@@ -89,10 +87,10 @@ public class Cavaliers extends AppCompatActivity {
         return true;
     }
 
-    public void navigateToDetails(CavaliersPlayers cavaliersPlayers) {
+    public void navigateToDetails(WarriorsPlayers warriorsPlayers) {
 
-        Intent myIntent = new Intent(Cavaliers.this, CavaliersDetails.class);
-        myIntent.putExtra("cavaliersKey", Singletons.getGson().toJson(cavaliersPlayers));
-        Cavaliers.this.startActivity(myIntent);
+        Intent myIntent = new Intent(Warriors.this, WarriorsDetails.class);
+        myIntent.putExtra("warriorsKey", Singletons.getGson().toJson(warriorsPlayers));
+        Warriors.this.startActivity(myIntent);
     }
 }

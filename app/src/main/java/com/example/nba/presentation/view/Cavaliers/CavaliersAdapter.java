@@ -1,4 +1,4 @@
-package com.example.nba.presentation.view;
+package com.example.nba.presentation.view.Cavaliers;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nba.R;
 import com.example.nba.presentation.model.CavaliersPlayers;
-import com.example.nba.presentation.model.WarriorsPlayers;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

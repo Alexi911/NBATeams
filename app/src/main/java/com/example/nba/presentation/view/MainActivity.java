@@ -13,6 +13,10 @@ import android.util.Log;
 import com.example.nba.presentation.model.MainModel;
 import com.example.nba.R;
 
+import com.example.nba.presentation.view.Bulls.Bulls;
+import com.example.nba.presentation.view.Cavaliers.Cavaliers;
+import com.example.nba.presentation.view.Lakers.Lakers;
+import com.example.nba.presentation.view.Warriors.Warriors;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

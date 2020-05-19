@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".presentation.view.Warriors" />
-        <activity android:name=".presentation.view.Cavaliers" />
-        <activity android:name=".presentation.view.Lakers" />
-        <activity android:name=".presentation.view.Bulls"/>
-        <activity android:name=".presentation.view.WarriorsDetails" />
-        <activity android:name=".presentation.view.CavaliersDetails" />
-        <activity android:name=".presentation.view.LakersDetails" />
-        <activity android:name=".presentation.view.BullsDetails" />
+        <activity android:name=".presentation.view.Warriors.Warriors" />
+        <activity android:name=".presentation.view.Cavaliers.Cavaliers" />
+        <activity android:name=".presentation.view.Lakers.Lakers" />
+        <activity android:name=".presentation.view.Bulls.Bulls"/>
+        <activity android:name=".presentation.view.Warriors.WarriorsDetails" />
+        <activity android:name=".presentation.view.Cavaliers.CavaliersDetails" />
+        <activity android:name=".presentation.view.Lakers.LakersDetails" />
+        <activity android:name=".presentation.view.Bulls.BullsDetails" />
         <activity android:name=".presentation.view.MainActivity" />
         <activity android:name=".presentation.view.SplashScreen">
             <intent-filter>

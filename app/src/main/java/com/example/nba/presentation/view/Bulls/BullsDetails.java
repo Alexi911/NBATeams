@@ -1,4 +1,4 @@
-package com.example.nba.presentation.view;
+package com.example.nba.presentation.view.Bulls;
 
 import android.content.Intent;
 import android.os.Bundle;

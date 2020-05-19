@@ -2,8 +2,7 @@ package com.example.nba.presentation.controller;
 
 import android.content.SharedPreferences;
 
-import com.example.nba.presentation.model.CavaliersPlayers;
-import com.example.nba.presentation.view.Bulls;
+import com.example.nba.presentation.view.Bulls.Bulls;
 import com.example.nba.Singletons;
 import com.example.nba.presentation.model.BullsPlayers;
 import com.example.nba.presentation.model.RestNBA;
