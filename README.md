@@ -19,7 +19,7 @@ git clone https://github.com/Alexi911/NBATeams.git
 
 ### Utilisations technique
 
-Java,Retrofit,Picasso
+Java,Retrofit,Picasso,RecyclerView
 
 ### Résumé
 
