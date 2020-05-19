@@ -1,4 +1,4 @@
-package com.example.nba.Warriors;
+package com.example.nba.presentation.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nba.R;
+import com.example.nba.presentation.model.WarriorsPlayers;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -20,11 +21,15 @@ public class WarriorsAdapter extends RecyclerView.Adapter<WarriorsAdapter.ViewHo
 
     private List<WarriorsPlayers> values;
     private List<WarriorsPlayers> valuesFull;
-    private WarriorsOnNoteListener mOnNoteListener;
+    private OnItemClickListener listener;
 
-    public WarriorsAdapter(List<WarriorsPlayers> myDataset, WarriorsOnNoteListener WarriorsonNoteListener) {
-        this.mOnNoteListener = WarriorsonNoteListener;
-        values = myDataset;
+    public interface OnItemClickListener {
+        void onItemClick(WarriorsPlayers item);
+    }
+
+    public WarriorsAdapter(List<WarriorsPlayers> myDataset, OnItemClickListener listener) {
+        this.values = myDataset;
+        this.listener = listener;
         valuesFull = new ArrayList<>(myDataset);
     }
 
@@ -32,7 +37,7 @@ public class WarriorsAdapter extends RecyclerView.Adapter<WarriorsAdapter.ViewHo
     public WarriorsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.row_layout, parent, false);
-        ViewHolder vh = new ViewHolder(v, mOnNoteListener);
+        ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
@@ -43,6 +48,12 @@ public class WarriorsAdapter extends RecyclerView.Adapter<WarriorsAdapter.ViewHo
         holder.txtFooter.setText(currentPlayers.getWarriors_lastName());
 
         Picasso.get().load(currentPlayers.getWarriors_image()).into(holder.urlimage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                listener.onItemClick(currentPlayers);
+            }
+        });
     }
 
     @Override
@@ -50,35 +61,20 @@ public class WarriorsAdapter extends RecyclerView.Adapter<WarriorsAdapter.ViewHo
         return values.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView txtHeader;
         public TextView txtFooter;
         public ImageView urlimage;
 
-        WarriorsOnNoteListener WarriorsonNoteListener;
 
-        public ViewHolder(View v, WarriorsOnNoteListener WarriorsonNoteListener) {
+        public ViewHolder(View v) {
 
             super(v);
             txtHeader = (TextView) v.findViewById(R.id.firstLine);
             txtFooter = (TextView) v.findViewById(R.id.secondLine);
             urlimage = (ImageView) v.findViewById(R.id.imageView3);
-            this.WarriorsonNoteListener = WarriorsonNoteListener;
-
-            itemView.setOnClickListener(this);
-
         }
-
-        @Override
-        public void onClick(View v) {
-            WarriorsonNoteListener.onNoteCLick(getAdapterPosition() );
-
-        }
-    }
-
-    public interface WarriorsOnNoteListener{
-        void onNoteCLick(int position);
     }
 
     @Override

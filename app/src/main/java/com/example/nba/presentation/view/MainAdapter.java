@@ -1,4 +1,4 @@
-package com.example.nba.Main;
+package com.example.nba.presentation.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.nba.presentation.model.MainModel;
 import com.example.nba.R;
 
 import java.util.ArrayList;

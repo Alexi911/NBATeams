@@ -1,7 +1,6 @@
-package com.example.nba.Main;
+package com.example.nba.presentation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,15 +9,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
-import com.example.nba.Bulls.Bulls;
-import com.example.nba.Cavaliers.Cavaliers;
-import com.example.nba.Lakers.Lakers;
+import com.example.nba.presentation.model.MainModel;
 import com.example.nba.R;
-import com.example.nba.Warriors.Warriors;
+
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -32,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.OnNot
 
     private SharedPreferences sharedPreferences;
     private Gson gson;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

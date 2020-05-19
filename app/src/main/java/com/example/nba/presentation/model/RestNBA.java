@@ -1,10 +1,5 @@
-package com.example.nba;
+package com.example.nba.presentation.model;
 
-
-import com.example.nba.Bulls.BullsPlayers;
-import com.example.nba.Cavaliers.CavaliersPlayers;
-import com.example.nba.Lakers.LakersPlayers;
-import com.example.nba.Warriors.WarriorsPlayers;
 
 import java.util.List;
 

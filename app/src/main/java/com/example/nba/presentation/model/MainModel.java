@@ -1,4 +1,4 @@
-package com.example.nba.Main;
+package com.example.nba.presentation.model;
 
 public class MainModel {
     Integer langLogo;

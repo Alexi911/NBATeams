@@ -1,4 +1,6 @@
-package com.example.nba;
+package com.example.nba.data;
+
+import com.example.nba.presentation.model.RestNBA;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

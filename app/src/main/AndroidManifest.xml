@@ -11,13 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Bulls.Bulls"></activity>
-        <activity android:name=".Lakers.Lakers" />
-        <activity android:name=".Cavaliers.Cavaliers" />
-        <activity android:name=".PlayersDetails" />
-        <activity android:name=".Warriors.Warriors" />
-        <activity android:name=".Main.MainActivity" />
-        <activity android:name=".Main.SplashScreen">
+
+        <activity android:name=".presentation.view.Warriors" />
+        <activity android:name=".presentation.view.Cavaliers" />
+        <activity android:name=".presentation.view.Lakers" />
+        <activity android:name=".presentation.view.Bulls"/>
+        <activity android:name=".presentation.view.WarriorsDetails" />
+        <activity android:name=".presentation.view.CavaliersDetails" />
+        <activity android:name=".presentation.view.LakersDetails" />
+        <activity android:name=".presentation.view.BullsDetails" />
+        <activity android:name=".presentation.view.MainActivity" />
+        <activity android:name=".presentation.view.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
